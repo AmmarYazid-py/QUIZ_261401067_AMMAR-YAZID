@@ -11,10 +11,26 @@ begin
     nilaiAkhir := uas + uts + tugas;
     HitungAkhir := nilaiAkhir;
 end;
+
+function Grade(e:real):char;
+begin
+    if e >= 85 then
+        status := 'A';
+    if e >= 70 then
+        status := 'B';
+    if e >= 55 then
+        status := 'C';
+    else if >= 40 then
+        status := 'D';
+    else if e < 40 then 
+        status := 'E';
+end;
+
 var 
     i : integer;
     nama : string;
     UAS,UTS,Tugas : real;
+    max,min : array [1..40] of real;
 
 begin
     clrscr;
@@ -46,6 +62,21 @@ begin
         until (UAS,UTS,Tugas >= 0) and (UAS,UTS,Tugas <= 100);
 
         NilaiAkhir := HitungAkhir(UAS,UTS,Tugas);
+
+        max[1] := 1;
+        min[1] := 1;
+
+        if NilaiAkhir > max[i] then 
+        begin
+            NilaiAkhir := max[i];
+        end
+        else if NilaiAkhir < min[i] then
+        begin
+            NilaiAkhir := min[i];
+        end;
+    end;
+    
+        writeln('')
 
     
 
